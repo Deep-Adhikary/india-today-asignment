@@ -21,7 +21,7 @@ public class SportsTakTest {
     private PropertyReader reader;
 
     private Home homepage;
-    private WebStories webStories;
+    private WebStories webStoriesPage;
     @BeforeClass
     public void setUp() throws Exception {
         driver = WebDriverFactory.getDriver(Browser.FIREFOX);
