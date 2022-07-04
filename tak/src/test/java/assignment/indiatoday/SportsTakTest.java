@@ -4,6 +4,7 @@ import org.testng.annotations.*;
 
 import assignment.indiatoday.base.factories.WebDriverFactory;
 import assignment.indiatoday.base.pages.Home;
+import assignment.indiatoday.base.pages.WebStories;
 import assignment.indiatoday.base.utils.Browser;
 import assignment.indiatoday.base.utils.PropertyReader;
 
@@ -20,12 +21,14 @@ public class SportsTakTest {
     private PropertyReader reader;
 
     private Home homepage;
-
+    private WebStories webStories;
     @BeforeClass
     public void setUp() throws Exception {
         driver = WebDriverFactory.getDriver(Browser.FIREFOX);
         reader = PropertyReader.getInstance();
         homepage = new Home(driver);
+        webStories=new WebStories(driver);
+
     }
 
     @Test
@@ -41,7 +44,7 @@ public class SportsTakTest {
     }
 
     @Test
-    void verifyPageTheme() {
+    public void verifyPageTheme() {
         homepage.navigate();
         homepage.getLeftMenu().open();
         homepage.getLeftMenu().changeTheme();
@@ -52,6 +55,14 @@ public class SportsTakTest {
         homepage.verifyPageThemeIs("black");
 
     }
+    @Test
+    public void VerifyWebStories(){
+        homepage.navigate();
+        homepage.getTopNavigation().navigateTo("webstory");
+        webStories.selectFirstWebStory();
+        webStories.switchToActiveStory();
+        webStories.changeStoryAndCaptureText();
+    } 
 
     @AfterClass
     public void tearDown() {
