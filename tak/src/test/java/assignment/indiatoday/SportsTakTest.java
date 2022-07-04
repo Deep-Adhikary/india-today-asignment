@@ -27,7 +27,7 @@ public class SportsTakTest {
         driver = WebDriverFactory.getDriver(Browser.FIREFOX);
         reader = PropertyReader.getInstance();
         homepage = new Home(driver);
-        webStories=new WebStories(driver);
+        webStoriesPage=new WebStories(driver);
 
     }
 
@@ -59,9 +59,9 @@ public class SportsTakTest {
     public void VerifyWebStories(){
         homepage.navigate();
         homepage.getTopNavigation().navigateTo("webstory");
-        webStories.selectFirstWebStory();
-        webStories.switchToActiveStory();
-        webStories.changeStoryAndCaptureText();
+        webStoriesPage.selectFirstWebStory();
+        webStoriesPage.switchToActiveStory();
+        webStoriesPage.changeStoryAndCaptureText();
     } 
 
     @AfterClass
