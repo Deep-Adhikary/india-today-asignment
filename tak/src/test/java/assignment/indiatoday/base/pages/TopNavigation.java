@@ -27,4 +27,15 @@ public class TopNavigation extends BasePage {
                         element -> element.getText().equalsIgnoreCase(linkText)).findFirst().get()))
                 .click();
     }
+
+    public String getActive() {
+        return wait.until(ExpectedConditions.visibilityOf(
+                topNavigationLinks.stream().filter(
+                        element -> element
+                                .getAttribute("class")
+                                .equalsIgnoreCase("active"))
+                        .findFirst().get()))
+                .getText();
+    }
+
 }
