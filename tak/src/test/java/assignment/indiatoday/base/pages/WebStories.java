@@ -8,7 +8,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindAll;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.testng.Reporter;
 
 import assignment.indiatoday.base.BasePage;
 
@@ -49,7 +48,7 @@ public class WebStories extends BasePage {
         sleep(5000);
         wait.until(ExpectedConditions.visibilityOf(firstWebStoryCard)).click();
         wait.until(ExpectedConditions.attributeContains(frameBody, "class", "home-page-content"));
-        Reporter.log("WebStory successfully selected");
+        custReporter.logInfo("WebStory successfully selected");
         driver.switchTo().defaultContent();
     }
 
@@ -71,7 +70,7 @@ public class WebStories extends BasePage {
         do {
             String storyText = wait.until(ExpectedConditions.visibilityOf(activeStoryTextContainer)).getText();
             System.out.println(page + ":" + storyText);
-            Reporter.log("WebStory Text Captured:"+ storyText );
+            custReporter.logInfo("WebStory Text Captured:"+ storyText );
 
             customcapabilities.clickUsingJavaScript(wait.until(ExpectedConditions.elementToBeClickable(nextStory)));
             sleep(2000);
