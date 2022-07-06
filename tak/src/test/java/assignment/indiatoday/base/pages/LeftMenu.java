@@ -12,6 +12,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import org.testng.Assert;
+import org.testng.Reporter;
 
 import assignment.indiatoday.base.BasePage;
 
@@ -41,6 +42,7 @@ public class LeftMenu extends BasePage {
         wait.until(ExpectedConditions.elementToBeClickable(leftSandwitchMenu)).click();
         wait.until(ExpectedConditions.attributeContains(sideBarContainer, "class", "active"));
         Assert.assertTrue(sidebarLinks.size() > 0);
+        Reporter.log("Left Menu Opened");
 
     }
 
@@ -51,16 +53,20 @@ public class LeftMenu extends BasePage {
     public void changeLanguage(String language) {
         if (language.equalsIgnoreCase("english")) {
             wait.until(ExpectedConditions.visibilityOf(getLinkByText("भाषा बदलें"))).click();
+            Reporter.log("Successfully Change to Language"+ language);
             return;
         }
         if (language.equalsIgnoreCase("hindi")) {
             wait.until(ExpectedConditions.visibilityOf(getLinkByText("change language"))).click();
+            Reporter.log("Successfully Change to Language"+ language);
             return;
         }
     }
 
     public void changeTheme() {
         wait.until(ExpectedConditions.visibilityOf(theamButton)).click();
+        Reporter.log("Theme Changed");
+
     }
 
     private WebElement getLinkByText(String text) {
