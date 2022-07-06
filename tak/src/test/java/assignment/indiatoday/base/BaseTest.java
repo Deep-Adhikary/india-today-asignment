@@ -1,9 +1,6 @@
 package assignment.indiatoday.base;
 
-import org.testng.annotations.*;
 
-import assignment.indiatoday.base.factories.WebDriverFactory;
-import assignment.indiatoday.base.utils.Browser;
 import assignment.indiatoday.base.utils.CustomReporter;
 import assignment.indiatoday.base.utils.PropertyReader;
 

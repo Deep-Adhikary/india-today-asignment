@@ -7,7 +7,6 @@ import assignment.indiatoday.base.factories.WebDriverFactory;
 import assignment.indiatoday.base.pages.Home;
 import assignment.indiatoday.base.pages.WebStories;
 import assignment.indiatoday.base.utils.Browser;
-import assignment.indiatoday.base.utils.CustomReporter;
 import assignment.indiatoday.base.utils.PropertyReader;
 
 public class SportsTakTest extends BaseTest {

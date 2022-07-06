@@ -2,9 +2,6 @@ package assignment.indiatoday.base.pages;
 
 import java.util.List;
 
-import javax.lang.model.element.Element;
-import javax.swing.text.html.CSS;
-
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindAll;
