@@ -9,7 +9,6 @@ import assignment.indiatoday.base.utils.Browser;
 import assignment.indiatoday.base.utils.PropertyReader;
 
 import org.openqa.selenium.WebDriver;
-import org.testng.Assert;
 
 public class SportsTakTest {
     /**
@@ -42,6 +41,11 @@ public class SportsTakTest {
         homepage.getLeftMenu().changeLanguage("english");
 
     }
+    @Test 
+    void verifyAllHomePageLinksAreWorking(){
+        homepage.navigate();
+        homepage.verifyAllLinks();
+    }
 
     @Test
     public void verifyPageTheme() {
@@ -66,7 +70,7 @@ public class SportsTakTest {
 
     @AfterClass
     public void tearDown() {
-        driver.close();
+        // driver.close();
         driver.quit();
     }
 }
