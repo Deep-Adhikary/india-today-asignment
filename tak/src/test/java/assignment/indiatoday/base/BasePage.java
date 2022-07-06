@@ -8,6 +8,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import assignment.indiatoday.base.pages.LeftMenu;
 import assignment.indiatoday.base.pages.TopNavigation;
 import assignment.indiatoday.base.utils.CustomCapabilities;
+import assignment.indiatoday.base.utils.CustomReporter;
 import assignment.indiatoday.base.utils.PropertyReader;
 
 import org.openqa.selenium.support.PageFactory;
@@ -17,6 +18,7 @@ public class BasePage {
     protected WebDriverWait wait;
     protected PropertyReader reader;
     protected CustomCapabilities customcapabilities;
+    protected CustomReporter custReporter;
     private LeftMenu leftMenu;
     private TopNavigation topNavigation;
 
@@ -26,6 +28,7 @@ public class BasePage {
         wait = new WebDriverWait(this.driver, Duration.ofSeconds(30));
         customcapabilities = new CustomCapabilities(driver);
         PageFactory.initElements(this.driver, this);
+        custReporter=new CustomReporter(driver);
     }
 
     public void refreshePageObjects() {
