@@ -36,7 +36,7 @@ public class Home extends BasePage {
         driver.navigate().to(reader.get("appurl"));
         refreshePageObjects();
         getLeftMenu().refreshePageObjects();
-        Reporter.log("Successfully navigated to home page");
+        custReporter.logInfo("Successfully navigated to home page");
 
     }
 
@@ -46,20 +46,20 @@ public class Home extends BasePage {
 
     public void verifyPageThemeIs(String theme) {
         Assert.assertEquals(getCurrentTheme().toLowerCase(), theme.toLowerCase());
-        Reporter.log("Theme Verification successfule for :'"+ theme+ "'");
+        custReporter.logInfo("Theme Verification successfule for :'"+ theme+ "'");
 
     }
 
     public void verifyLanguageIsSetTo(String language) {
         if (language.equalsIgnoreCase("hindi")) {
             Assert.assertTrue(driver.getCurrentUrl().toLowerCase().contains("hindi"));
-            Reporter.log("Language is successfully set to:'"+ language+ "'");
+            custReporter.logInfo("Language is successfully set to:'"+ language+ "'");
 
             return;
         }
         if (language.equalsIgnoreCase("english")) {
             Assert.assertFalse(driver.getCurrentUrl().toLowerCase().contains("hindi"));
-            Reporter.log("Language is successfully set to:'"+ language+ "'");
+            custReporter.logInfo("Language is successfully set to:'"+ language+ "'");
 
             return;
         }
@@ -74,7 +74,7 @@ public class Home extends BasePage {
                     ExpectedConditions.presenceOfElementLocated(
                             By.xpath("(" + allcardLocator + ")" + "[" + i + "]")));
             String title = cardButton.getText();
-            Reporter.log("Verifying Link for title:'"+ title+ "'");
+            custReporter.logInfo("Verifying Link for title:'"+ title+ "'");
             //Had to use javascript click as normal click thowing error element not interactable
             customcapabilities.scrollIntoViewUsingJavaScript(cardButton);
             customcapabilities.clickUsingJavaScript(cardButton);
@@ -107,14 +107,14 @@ public class Home extends BasePage {
 
 
                 }
-                Reporter.log("Link verifiction successfull for title:'"+ title+ "'");
+                custReporter.logInfo("Link verifiction successfull for title:'"+ title+ "'");
 
                 this.getTopNavigation().navigateTo("Home");
                 sleep(2000);
 
             } catch (TimeoutException e) {
                 System.out.println("Link not working for '" + title + "'");
-                Reporter.log("Link verifiction failed for title:'"+ title+ "'");
+                custReporter.logError("Link verifiction failed for title:'"+ title+ "'");
 
                 softAssert.assertTrue(status);
             }
