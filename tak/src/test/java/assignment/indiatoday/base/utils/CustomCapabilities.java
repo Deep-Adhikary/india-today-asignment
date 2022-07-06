@@ -20,7 +20,18 @@ public class CustomCapabilities {
         return eles.get(0);
     }
 
+    public void scrollIntoViewUsingJavaScript(WebElement element) {
+        ((JavascriptExecutor) driver)
+                .executeScript("arguments[0].scrollIntoView();", element);
+        try {
+            Thread.sleep(500);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
     public void clickUsingJavaScript(WebElement element) {
+
         ((JavascriptExecutor) driver)
                 .executeScript("arguments[0].click();", element);
     }
